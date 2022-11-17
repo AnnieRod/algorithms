@@ -46,3 +46,50 @@ greaterTwo([1, 3, 5, 7, 9, 13]);
 
 // Jinx: Devuelve un arreglo de longitud num1 con cada num2. 
 
+function getJinxed(num1,num2) {
+    if (num1 === num2) {
+        console.log("Jinx!")
+    }
+
+    arr = []
+    for (var i = 0; i<num1; i++) {
+        arr.push(num2)
+    }
+    
+    console.log(arr)
+    return arr
+}
+
+getJinxed(3,3);
+
+//Ajusta el primer valor: Imprime cosas segun la longitud y [0]
+
+function tooLengthy(arr) {
+    if (arr[0] > arr.length) {
+        console.log("Too big!")
+    }
+    else if (arr[0] < arr.length) {
+        console.log("Too small!")
+    }
+    else {
+        console.log("Perfect!")
+    } 
+}
+
+tooLengthy([10,3,5,6]);
+
+// Fahrenheit a Celsius and so on...
+
+function fartoCel(fDegrees) {
+    var cel = (fDegrees - 32)* 5/9;
+    console.log (fDegrees + " Fahrenheit correspond to " + cel + " Celsius")
+}
+
+fartoCel(45);
+
+function celtoFar(cDegrees) {
+    var fahr = cDegrees * 9/5 + 32;
+    console.log(cDegrees + " Celsius correspond to " + fahr + " Fahrenheit")
+}
+
+celtoFar(60);
