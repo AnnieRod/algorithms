@@ -20,3 +20,21 @@ function playFives(num) {
 }
 
 playFives(3);
+
+//Llama rollOne 8 veces pero NO imprima el resultado, solo los valors mas bajos y altos
+function playStatistics(){
+    var play = rollOne();
+    let low = play;
+    let high = play;
+    for(var i = 1; i <= 8; i++){
+        var result = rollOne();
+        if(play < low){
+            low = play;
+        }
+        if(play > high){
+            high = play;
+        }
+    }
+    console.log("Low: " + low + " - High: " + high);
+}
+playStatistics();
