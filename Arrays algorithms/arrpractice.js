@@ -30,11 +30,24 @@ arrMin(arraySample);
 //Hallar la suma de los valores
 
 function arrSum(arr){
-    
+    var sum = 0;
+    for(var i = 0; i<arr.length; i++) {
+        sum+=arr[i];
+    }
+    console.log(sum);
+    return sum;
 }
+
+arrSum(arraySample);
 
 //Hallar el promedio de los valores
 function arrMean(arr) {
-
+    var total = arrSum(arr);
+    var length = arr.length;
+    var mean = total/length;
+    return mean;
 }
+
+arrMean(arraySample);
+
 
