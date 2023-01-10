@@ -50,4 +50,34 @@ function arrMean(arr) {
 
 arrMean(arraySample);
 
+//TO DO 1: ARRAYS FROM CODING DOJO 
 
+//Push al frente: inserta un valor al INICIO del array sin uso de funciones built-in
+
+function pushFront(arr,num) {
+    for (var i = arr.length -1; i>= 0; i--) {
+        arr[i+1] = arr[i];
+    }
+    arr[0] = num;
+    return arr;
+}
+
+console.log(pushFront(arraySample,"hello"));
+
+
+//pop al frente; elimina y retorna el valor inicial del array sin built-in methods
+
+function popFront(arr) {
+        let a = arr[0];
+        let newArr = [];
+        for (let i = 1; i <= arr.length - 1; i++) {
+            newArr[i - 1] = arr[i];
+        }
+        console.log(newArr);
+        console.log(a);
+        return a
+    }
+
+popFront(arraySample);
+
+//
