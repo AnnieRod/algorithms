@@ -94,5 +94,20 @@ function pushIndex(arr,index,val) {
 
 console.log(pushIndex(array2, 3, "bonjour"));
 
-//
+//Eliminar en: elimina un elemento acorde a cierto index dado
+
+function popIndex(arr, index) {
+    let a = arr[index];
+    let newArr = [];
+    for (let i = 1; i <= arr.length - 1; i++) {
+        newArr[i - 1] = arr[i];
+    }
+    console.log(newArr);
+    console.log(a);
+    return a
+}
+
+popIndex(array2, 5);
+
+
 
