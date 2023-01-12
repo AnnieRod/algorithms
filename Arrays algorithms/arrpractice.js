@@ -80,4 +80,19 @@ function popFront(arr) {
 
 popFront(arraySample);
 
+//Insertar en: Inserta un valor en cierto index dado sin built-in methods
+
+array2 = [1,2,3,4,5,6,7,8,9,10];
+
+function pushIndex(arr,index,val) {
+    for (var i = arr.length -1; i>= 0; i--) {
+        arr[i+1] = arr[i];
+    }
+    arr[index] = val;
+    return arr;
+}
+
+console.log(pushIndex(array2, 3, "bonjour"));
+
 //
+
