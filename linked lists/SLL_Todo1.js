@@ -19,7 +19,13 @@ class SLL {
         this.head = nodeNew;
         return this.head;
     }
+
+//Elimina el nodo que encabeza la lista y retorna la nueva cabeza
+    deleteFront() {
+        if(this.head) {
+            this.head = this.head.next;
+        }
+        return this.head;
+    }
 }
-
-
 
