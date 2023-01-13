@@ -27,5 +27,18 @@ class SLL {
         }
         return this.head;
     }
+
+//Asigna un valor como parametro y devuelve un booleano acorde a si hay un valor asi en la lista
+
+    contains(value) {
+        var temp = this.head;
+        while(temp) {
+            if(temp.value === value){
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
 }
 
