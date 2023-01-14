@@ -54,6 +54,17 @@ function slQueue() {
     }
 
 //return if the queue contains some given value
-    
+    this.contains = function (value) {
+        temp = head; 
+        while (temp) {
+            if(temp.val === value) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+
+//return the number of values in the queue
 
 }   
