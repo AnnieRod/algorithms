@@ -66,5 +66,13 @@ function slQueue() {
     }
 
 //return the number of values in the queue
-
+    this.size = function () {
+        var temp = head;
+        var total = 0;
+        while(temp) {
+            total++;
+            temp = temp.next;
+        }
+        return total;
+    }
 }   
