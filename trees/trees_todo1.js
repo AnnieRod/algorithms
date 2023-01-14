@@ -1,6 +1,6 @@
 //Crear un arbol BST (Arbol de busqueda binaria)
 
-class btNode {
+class Node {
     constructor(value) {
         this.val = value;
         this.left = null;
@@ -118,3 +118,37 @@ class treeBST {
     }
 
 }
+// *******     PRUEBAS DEL ARBOL ******** 
+
+
+// Crea un arbol nuevi
+tree = new treeBST();
+
+// Agrega nodos
+tree.add(10).add(20).add(5).add(7).add(21).add(2).add(9).add(17).add(6).add(4);
+
+// Busca un valor
+console.log(tree.contains(17));
+
+// Busca un valor que NO existe
+console.log(tree.contains('hello'));
+
+// Encuentra minimo
+console.log(tree.min());
+
+// Encuentra maximo 
+
+console.log(tree.max());
+
+// Da el tamaño
+console.log(tree.size());
+
+//Prueba si esta vacio y crea uno vacio para probar el caso posible
+
+console.log(tree.treeEmpty());
+
+emptyTree = new treeBST();
+console.log(emptyTree.treeEmpty());
+
+// Imprime el arbol actual
+console.log(tree);
