@@ -30,11 +30,29 @@ function arrayStack(){
         }
     }
 
-
 //remove and return the top value (pop)
+
+    this.pop = function () {
+        var element = arr[arr.length - 1];
+        arr.length--;
+        return element;
+    }
 
 //check if the stack contains some value
 
+    this.contains = function(value) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+            if (arr[i] === value) {
+                return true;
+            }
+        } 
+        return false;
+    }
+
 //return the number of stacked values
+
+    this.size = function() {
+        return arr.length;
+    }
 
 }
