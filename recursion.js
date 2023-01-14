@@ -13,5 +13,11 @@ recursiveSigma(8);
 //Dado un numero, retorna el producto de su multplicacion desde ahi hasta el num (factorial)
 
 function recursiveFact(num) {
-    
+    if(num > 1) {
+        return rFact(num-1) * num;
+    }
+    return 1
 }
+
+recursiveFact(4);
+
