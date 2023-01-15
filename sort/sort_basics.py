@@ -41,3 +41,26 @@ def selectionSortArr(arr):
         arr[i], arr[min_index] = arr[min_index], arr[i]
     return arr
 
+# Create a function that sorts a singly linked list using selection sort. 
+
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+def selectionSortList(head):
+    if not head:
+        return None
+    current = head
+    while current:
+        min_node = current
+        temp = current.next
+        while temp:
+            if temp.val < min_node.val:
+                min_node = temp
+            temp = temp.next
+        current.val, min_node.val = min_node.val, current.val
+        current = current.next
+    return head
+
+#
