@@ -48,11 +48,35 @@ class SList {
             runner = runner.next;
         }
         return runner.data
-    }   
+    }  
+    
+    //Retorna si una lista es palindromo (se lee igual al derecho que al reves)
+
+    isPalindrome() {
+        let current = this.head;
+        let count = 0;
+        let values = []
+
+        // cuenta los nodos de una lista y guarda sus valores en un array
+        while (current) {
+            values.push(current.data);
+            current = current.next;
+            count++;
+        }
+
+        // Compara los nodos desde el principio hasta el final
+        for (let i = 0; i < Math.floor(count / 2); i++) {
+            if (values[i] !== values[count - i - 1]) {
+                return false;
+            }
+        }
+
+        return true; //retorna verdadero si es palindromo (son iguales al derecho y reves)
+    }
 
 }
 
-//TESTING OF THE WHOLE METHOD of K's
+//TESTING OF THE WHOLE METHODS
 
 let list = new SList();
 
@@ -78,3 +102,4 @@ console.log(list.findNode(2)); // 4
 console.log(list.findNode(3)); // 3
 console.log(list.findNode(4)); // 2
 console.log(list.findNode(5)); // 1
+console.log(list.isPalindrome());
