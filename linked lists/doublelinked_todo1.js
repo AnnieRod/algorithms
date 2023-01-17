@@ -74,6 +74,8 @@ class SList {
         return true; //retorna verdadero si es palindromo (son iguales al derecho y reves)
     }
 
+    //Cambia los nodos de la derecha acorde a un numero dado (estos cambios son circulares)
+
 }
 
 //TESTING OF THE WHOLE METHODS
@@ -103,3 +105,49 @@ console.log(list.findNode(3)); // 3
 console.log(list.findNode(4)); // 2
 console.log(list.findNode(5)); // 1
 console.log(list.isPalindrome());
+
+
+//el palindrome SIN USO ADICIONAL DE LOOPS EN CASO DE POCA MEMORIA
+//Usa el metodo de pointers 'rapidos' y 'lentos' :))
+
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+
+class SList {
+    constructor() {
+        this.head = null;
+    }
+
+    isPalindrome() {
+        let slow = this.head;
+        let fast = this.head;
+        let prev = null;
+        let next = null;
+
+        while (fast && fast.next) {
+            fast = fast.next.next;
+            next = slow.next;
+            slow.next = prev;
+            prev = slow;
+            slow = next;
+        }
+
+        // if odd number of nodes
+        if (fast) {
+            slow = slow.next;
+        }
+
+        while (slow) {
+            if (prev.data !== slow.data) {
+                return false;
+            }
+            prev = prev.next;
+            slow = slow.next;
+        }
+        return true;
+    }
+}
