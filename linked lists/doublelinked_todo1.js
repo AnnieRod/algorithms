@@ -53,14 +53,14 @@ class SList {
     //Retorna si una lista es palindromo (se lee igual al derecho que al reves)
 
     isPalindrome() {
-        let current = this.head;
+        let runner = this.head;
         let count = 0;
         let values = []
 
         // cuenta los nodos de una lista y guarda sus valores en un array
-        while (current) {
-            values.push(current.data);
-            current = current.next;
+        while (runner) {
+            values.push(runner.data);
+            runner = runner.next;
             count++;
         }
 
@@ -76,7 +76,38 @@ class SList {
 
     //Cambia los nodos de la derecha acorde a un numero dado (estos cambios son circulares)
 
+    shiftValues(shifter) {
+        let runner = this.head;
+        let tail = null;
+        let count = 0;
+
+        while (runner) {
+            tail = runner;
+            runner = runner.next;
+            count++;
+        }
+
+        // si la lista esta vacia o el shifter es 0 retorna la misma lista
+        if (count === 0 || shifter === 0) {
+            return;
+        }
+
+        // el cambio se vuelve circular
+        shifter = shifter % count;
+
+        // Crea una nueva cola para cambiar el lado
+        let newTail = count - shifter;
+        runner = this.head;
+        for (let i = 1; i < newTail; i++) {
+            runner = runner.next;
+        }
+
+        tail.next = this.head;
+        this.head = runner.next;
+        runner.next = null;
+    }
 }
+
 
 //TESTING OF THE WHOLE METHODS
 
@@ -105,6 +136,7 @@ console.log(list.findNode(3)); // 3
 console.log(list.findNode(4)); // 2
 console.log(list.findNode(5)); // 1
 console.log(list.isPalindrome());
+console.log(list.shiftValues(3));
 
 
 //el palindrome SIN USO ADICIONAL DE LOOPS EN CASO DE POCA MEMORIA
