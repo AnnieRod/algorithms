@@ -25,3 +25,22 @@ class HashMap:
                     return True
             self.map[key_hash].append(key_value)
             return True
+
+## Create a find(key) method to return value for given key. If key is not found, return null.
+
+class MyHashMap:
+    def __init__(self, size):
+        self.size = size
+        self.map = {}
+
+    def add(self, key, val):
+        index = hash(key) % size
+        self.map[key] = val
+
+    def find(self, key):
+        if key in self.map:
+            return self.map[key]
+        else:
+            return None
+    def is_empty(self):
+        return not bool(self.map)
