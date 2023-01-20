@@ -1,5 +1,8 @@
 ##create an add method on HashMap to add a new key and value to the map
 
+from ctypes import sizeof
+
+
 class HashMap:
     def __init__(self, size):
         self.size = size
@@ -34,7 +37,7 @@ class MyHashMap:
         self.map = {}
 
     def add(self, key, val):
-        index = hash(key) % size
+        index = hash(key) % sizeof
         self.map[key] = val
 
     def find(self, key):
