@@ -47,6 +47,26 @@ class TrieSet:
                 return letters
             return max([dfs(child_node, letters+letter) for letter,child_node in node.children.items()])
         return dfs(self.root, "")
+    
+    ## remove a string returning true when its done and flase if doesnt found the str to delete
+    def remove(self, word):
+        word = word.lower()
+        current_node = self.root
+        nodes_to_update = []
+        for letter in word:
+            if letter not in current_node.children:
+                return False
+            nodes_to_update.append((current_node, letter))
+            current_node = current_node.children[letter]
+        if not current_node.is_word:
+            return False
+        current_node.is_word = False
+        if len(current_node.children) == 0:
+            for node, letter in reversed(nodes_to_update):
+                del node.children[letter]
+                if node.is_word or len(node.children) > 0:
+                    break
+        return True
 
 trie_set = TrieSet() ##i created a set
 print(trie_set.add("bonjour")) # should return True
@@ -74,3 +94,7 @@ print(trie_set.search("hell")) # should return False
 
 print(trie_set.first()) 
 print(trie_set.last())
+
+print(trie_set.remove("bonjour")) # should return True
+
+print(trie_set.remove("bonjour")) # should return false
