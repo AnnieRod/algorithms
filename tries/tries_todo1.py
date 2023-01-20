@@ -31,6 +31,22 @@ class TrieSet:
                 return False
             current_node = current_node.children[letter]
         return current_node.is_word
+    
+    ## return the first alphabetically value of the set
+    def first(self):
+        def dfs(node, letters):
+            if node.is_word:
+                return letters
+            return min([dfs(child_node, letters+letter) for letter,child_node in node.children.items()])
+        return dfs(self.root, "")
+    
+    ## return the last one now
+    def last(self):
+        def dfs(node, letters):
+            if node.is_word:
+                return letters
+            return max([dfs(child_node, letters+letter) for letter,child_node in node.children.items()])
+        return dfs(self.root, "")
 
 trie_set = TrieSet() ##i created a set
 print(trie_set.add("bonjour")) # should return True
@@ -55,3 +71,6 @@ print(current_node.is_word) # should be False
 print(trie_set.search("hello")) # should return True
 print(trie_set.search("world")) # should return True
 print(trie_set.search("hell")) # should return False
+
+print(trie_set.first()) 
+print(trie_set.last())
