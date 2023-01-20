@@ -21,6 +21,16 @@ class TrieSet:
         else:
             current_node.is_word = True
             return True
+    
+    ## search if a string is present in the set
+    def search(self, word):
+        word = word.lower()
+        current_node = self.root
+        for letter in word:
+            if letter not in current_node.children:
+                return False
+            current_node = current_node.children[letter]
+        return current_node.is_word
 
 trie_set = TrieSet() ##i created a set
 print(trie_set.add("bonjour")) # should return True
@@ -41,3 +51,7 @@ current_node = trie_set.root
 for letter in "bonjo":
     current_node = current_node.children[letter]
 print(current_node.is_word) # should be False
+
+print(trie_set.search("hello")) # should return True
+print(trie_set.search("world")) # should return True
+print(trie_set.search("hell")) # should return False
